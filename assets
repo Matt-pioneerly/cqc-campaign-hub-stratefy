@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+:::instruction_block[head]
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campaign Assets Guide</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .nav {
+            background: #1a1a1a;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .nav-links a.active {
+            background: #4A90E2;
+        }
+        
+        .content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .asset-card {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .asset-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+        
+        .asset-icon {
+            font-size: 36px;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #F0F7FF;
+            border-radius: 10px;
+        }
+        
+        .asset-title {
+            flex: 1;
+        }
+        
+        .asset-title h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .asset-title .asset-type {
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .asset-section {
+            margin-bottom: 20px;
+        }
+        
+        .asset-section h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #4A90E2;
+        }
+        
+        .asset-section p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+            line-height: 1.6;
+        }
+        
+        .tips-list {
+            background: #F0F7FF;
+            border-left: 4px solid #4A90E2;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .tips-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .tips-list li {
+            font-size: 14px;
+            color: #333;
+            margin-bottom: 8px;
+        }
+        
+        .best-practice {
+            background: #FFF9E6;
+            border-left: 4px solid #F6AD55;
+            padding: 15px 20px;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        
+        .best-practice strong {
+            color: #C05621;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+            
+            .asset-header {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+
+:::
+:::instruction_block[body]
+
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-title">CQC Hub & Campaign</div>
+            <div class="nav-links">
+                <a href="index.html">Project Structure</a>
+                <a href="strategy.html">Strategy Overview</a>
+                <a href="assets.html" class="active">Assets Guide</a>
+                <a href="timeline.html">Timeline</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="header">
+            <h1>Campaign Assets Guide</h1>
+            <p class="subtitle">How to create high-value assets for maximum impact</p>
+        </div>
+
+        <!-- Hub -->
+        <div class="asset-card">
+            <div class="asset-header">
+                <div class="asset-icon">🏠</div>
+                <div class="asset-title">
+                    <h2>Content Hub</h2>
+                    <p class="asset-type">Evergreen Resource Center</p>
+                </div>
+            </div>
+            
+            <div class="asset-section">
+                <h3>What It Is</h3>
+                <p>A comprehensive, SEO-optimized landing page that serves as the central resource for a specific topic (e.g., "How to Launch a Private Practice"). It aggregates blog posts, guides, tools, and other resources into one navigable destination.</p>
+            </div>
+            
+            <div class="asset-section">
+                <h3>How to Make It Valuable</h3>
+                <div class="tips-list">
+                    <ul>
+                        <li><strong>Comprehensive structure:</strong> Cover all major subtopics with clear navigation</li>
+                        <li><strong>Internal linking:</strong> Connect to relevant blog posts, guides, and campaign assets</li>
+                        <li><strong>Progressive depth:</strong> Start with overview content, link to deeper dives</li>
+                        <li><strong>Regular updates:</strong> Keep content current with latest regulations, trends, data</li>
+                        <li><strong>Clear CTAs:</strong> Guide visitors to campaign assets (course, checklist) at natural points</li>
+                        <li><strong>Visual hierarchy:</strong> Use headers, cards, and sections for easy scanning</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="best-practice">
+                <strong>Best Practice:</strong> Design the hub to answer common questions at different stages of the journey. Each section should link to either a blog post (for awareness) or a campaign asset (for conversion).
+            </div>
+        </div>
+
+        <!-- Course/Interactive Checklist -->
+        <div class="asset-card">
+            <div class="asset-header">
+                <div class="asset-icon">🎓</div>
+                <div class="asset-title">
+                    <h2>Course / Interactive Checklist</h2>
+                    <p class="asset-type">Lead Magnet & Conversion Asset</p>
+                </div>
+            </div>
+            
+            <div class="asset-section">
+                <h3>What It Is</h3>
+                <p>A structured, actionable resource that guides users through a specific process (e.g., CQC registration). Can be a multi-module course, an interactive checklist with guidance, or a combination of both.</p>
+            </div>
+            
+            <div class="asset-section">
+                <h3>How to Make It Valuable</h3>
+                <div class="tips-list">
+                    <ul>
+                        <li><strong>Modular structure:</strong> Break into digestible steps (5-7 modules ideal)</li>
+                        <li><strong>Actionable content:</strong> Every section should have clear next steps</li>
+                        <li><strong>Templates included:</strong> Provide downloadable documents, checklists, worksheets</li>
+                        <li><strong>Progress tracking:</strong> Show users how far they've come and what's left</li>
+                        <li><strong>Expert credibility:</strong> Feature insights from Jonathan or other experts</li>
+                        <li><strong>Mixed media:</strong> Combine text, video, downloadables for different learning styles</li>
+                        <li><strong>Community element:</strong> If using Circle.so, enable peer discussion</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="best-practice">
+                <strong>Best Practice:</strong> Start with text-based modules for speed, then add video and interactivity over time. Each module should end with a clear "what to do next" action.
+            </div>
+        </div>
+
+        <!-- Video Content -->
+        <div class="asset-card">
+            <div class="asset-header">
+                <div class="asset-icon">🎥</div>
+                <div class="asset-title">
+                    <h2>Video Content</h2>
+                    <p class="asset-type">Multi-Purpose Promotional Asset</p>
+                </div>
+            </div>
+            
+            <div class="asset-section">
+                <h3>What It Is</h3>
+                <p>Short-form (2-5 min) or long-form (10-15 min) video content featuring Jonathan or experts explaining key concepts, common pitfalls, or success stories related to private practice launch.</p>
+            </div>
+            
+            <div class="asset-section">
+                <h3>How to Make It Valuable</h3>
+                <div class="tips-list">
+                    <ul>
+                        <li><strong>Modular shooting:</strong> Film multiple topics in one session for efficiency</li>
+                        <li><strong>Repurpose-first mindset:</strong> Structure for easy cutting into shorter clips</li>
+                        <li><strong>Strong hooks:</strong> First 3-5 seconds must grab attention for social</li>
+                        <li><strong>Subtitles always:</strong> Essential for social media consumption</li>
+                        <li><strong>Multiple formats:</strong> Horizontal (YouTube), square (LinkedIn/FB), vertical (Stories/Shorts)</li>
+                        <li><strong>CTA at end:</strong> Direct viewers to hub or course enrollment</li>
+                        <li><strong>B-roll and graphics:</strong> Keep visually engaging, avoid talking heads only</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="best-practice">
+                <strong>Best Practice:</strong> Create video with three uses in mind: 1) embedded in course/hub, 2) ads on social, 3) organic social posts. Script and shoot accordingly.
+            </div>
+        </div>
+
+        <!-- Blog Content -->
+        <div class="asset-card">
+            <div class="asset-header">
+                <div class="asset-icon">📝</div>
+                <div class="asset-title">
+                    <h2>Blog Content</h2>
+                    <p class="asset-type">SEO & Awareness Driver</p>
+                </div>
+            </div>
+            
+            <div class="asset-section">
+                <h3>What It Is</h3>
+                <p>SEO-optimized articles (800-1500 words) addressing specific questions or pain points related to launching a private practice. Serves as top-of-funnel content to drive organic traffic.</p>
+            </div>
+            
+            <div class="asset-section">
+                <h3>How to Make It Valuable</h3>
+                <div class="tips-list">
+                    <ul>
+                        <li><strong>Keyword research:</strong> Target long-tail queries with clear search intent</li>
+                        <li><strong>Answer-first format:</strong> Get to the point quickly, expand with detail</li>
+                        <li><strong>Internal linking:</strong> Link to hub and related blog posts (3-5 internal links minimum)</li>
+                        <li><strong>Clear CTA:</strong> At end, direct to course/checklist or hub for "next steps"</li>
+                        <li><strong>Expert quotes:</strong> Include Jonathan's insights for credibility</li>
+                        <li><strong>Scannable format:</strong> Use headers, bullets, short paragraphs</li>
+                        <li><strong>Regular publishing:</strong> Consistency matters for SEO (2-4 posts/month)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="best-practice">
+                <strong>Best Practice:</strong> Write blogs with hub structure in mind. Each blog should naturally fit into a hub category and link back to it. Think of blogs as "spokes" feeding the "hub."
+            </div>
+        </div>
+
+        <!-- Webinar -->
+        <div class="asset-card">
+            <div class="asset-header">
+                <div class="asset-icon">💻</div>
+                <div class="asset-title">
+                    <h2>Webinar</h2>
+                    <p class="asset-type">Live Engagement & Lead Generation</p>
+                </div>
+            </div>
+            
+            <div class="asset-section">
+                <h3>What It Is</h3>
+                <p>A live or pre-recorded 30-45 minute session with Jonathan (or expert) covering a high-value topic, with time for Q&A. Used as a launch event or ongoing engagement tool.</p>
+            </div>
+            
+            <div class="asset-section">
+                <h3>How to Make It Valuable</h3>
+                <div class="tips-list">
+                    <ul>
+                        <li><strong>Clear value prop:</strong> Promote specific takeaways attendees will get</li>
+                        <li><strong>Timed with launch:</strong> Schedule around course/checklist availability</li>
+                        <li><strong>Interactive elements:</strong> Polls, Q&A, chat to boost engagement</li>
+                        <li><strong>Slide deck:</strong> Share as downloadable resource post-webinar</li>
+                        <li><strong>Recording strategy:</strong> Offer replay to registrants who miss it</li>
+                        <li><strong>Follow-up sequence:</strong> Email attendees with course offer within 24 hours</li>
+                        <li><strong>Repurpose content:</strong> Cut into short clips for social and ads</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="best-practice">
+                <strong>Best Practice:</strong> Structure as 60% teaching, 20% Q&A, 20% soft pitch for course. Make the teaching so valuable that the course becomes a natural next step.
+            </div>
+        </div>
+
+        <!-- Case Studies -->
+        <div class="asset-card">
+            <div class="asset-header">
+                <div class="asset-icon">📊</div>
+                <div class="asset-title">
+                    <h2>Case Studies</h2>
+                    <p class="asset-type">Social Proof & Credibility</p>
+                </div>
+            </div>
+            
+            <div class="asset-section">
+                <h3>What It Is</h3>
+                <p>Real customer success stories showing how Semble customers launched their practices. Can be written, video interviews, or mixed media.</p>
+            </div>
+            
+            <div class="asset-section">
+                <h3>How to Make It Valuable</h3>
+                <div class="tips-list">
+                    <ul>
+                        <li><strong>Problem-Solution-Result format:</strong> Clear narrative arc</li>
+                        <li><strong>Specific metrics:</strong> Time saved, patients seen, revenue impact</li>
+                        <li><strong>Quote-heavy:</strong> Let customer voice come through authentically</li>
+                        <li><strong>Visual elements:</strong> Photos of practice, screenshots of Semble in action</li>
+                        <li><strong>Multiple formats:</strong> Long-form written + short video testimonial</li>
+                        <li><strong>Hub integration:</strong> Feature case studies prominently on relevant hub sections</li>
+                        <li><strong>Specialty diversity:</strong> Show different practice types (GP, dental, aesthetics)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="best-practice">
+                <strong>Best Practice:</strong> Focus case studies on the transformation journey, not just Semble features. Show how they went from "stuck at registration" to "thriving practice."
+            </div>
+        </div>
+
+        <!-- Social Content -->
+        <div class="asset-card">
+            <div class="asset-header">
+                <div class="asset-icon">📱</div>
+                <div class="asset-title">
+                    <h2>Social Content</h2>
+                    <p class="asset-type">Organic Reach & Community Building</p>
+                </div>
+            </div>
+            
+            <div class="asset-section">
+                <h3>What It Is</h3>
+                <p>Short-form posts, carousels, video clips, and stories shared on LinkedIn, Twitter, Facebook promoting hub content, blog posts, and campaign assets.</p>
+            </div>
+            
+            <div class="asset-section">
+                <h3>How to Make It Valuable</h3>
+                <div class="tips-list">
+                    <ul>
+                        <li><strong>Snippet strategy:</strong> Pull key insights from blogs/videos as standalone posts</li>
+                        <li><strong>Carousel posts:</strong> Turn blog sections into visual carousels (LinkedIn loves these)</li>
+                        <li><strong>Question posts:</strong> Ask community questions, link to hub for answers</li>
+                        <li><strong>Behind-the-scenes:</strong> Show Jonathan filming, course creation, customer wins</li>
+                        <li><strong>Consistent posting:</strong> 3-5x/week to maintain visibility</li>
+                        <li><strong>Engagement focus:</strong> Comment on related posts, build community</li>
+                        <li><strong>Always link back:</strong> Every post should drive to hub, blog, or course</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="best-practice">
+                <strong>Best Practice:</strong> Create social content in batches by repurposing existing assets. One blog post = 5-7 social posts. One video = 10+ clips/quotes.
+            </div>
+        </div>
+
+        <!-- Email Sequences -->
+        <div class="asset-card">
+            <div class="asset-header">
+                <div class="asset-icon">📧</div>
+                <div class="asset-title">
+                    <h2>Email Sequences</h2>
+                    <p class="asset-type">Nurture & Conversion Driver</p>
+                </div>
+            </div>
+            
+            <div class="asset-section">
+                <h3>What It Is</h3>
+                <p>Automated email sequences triggered by course enrollment, webinar attendance, or hub downloads. Guides leads through their journey with valuable content and soft CTAs.</p>
+            </div>
+            
+            <div class="asset-section">
+                <h3>How to Make It Valuable</h3>
+                <div class="tips-list">
+                    <ul>
+                        <li><strong>Welcome series:</strong> 3-5 emails introducing course, setting expectations</li>
+                        <li><strong>Progress nudges:</strong> Remind users to complete modules with specific value props</li>
+                        <li><strong>Value-first approach:</strong> Each email teaches something, not just promotes</li>
+                        <li><strong>Segmentation:</strong> Different sequences for course completers vs. non-starters</li>
+                        <li><strong>Clear CTAs:</strong> One primary action per email</li>
+                        <li><strong>Timing optimization:</strong> Test send times for engagement</li>
+                        <li><strong>Re-engagement campaigns:</strong> Win back inactive course enrollees</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="best-practice">
+                <strong>Best Practice:</strong> Map email sequences to user behavior. If they complete Module 1, congratulate and tease Module 2. If they stall, send case study showing ROI of completion.
+            </div>
+        </div>
+    </div>
+
+:::
+</html>
