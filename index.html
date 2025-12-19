@@ -1,17 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
+:::instruction_block[head]
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Private Practice Hub & CQC Campaign: Project Structure</title>
     <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
             line-height: 1.6;
+            color: #333;
+        }
+        
+        .nav {
+            background: #1a1a1a;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .nav-links a.active {
+            background: #4A90E2;
+        }
+        
+        .content {
             max-width: 900px;
             margin: 40px auto;
             padding: 0 20px;
-            color: #333;
         }
         
         .header {
@@ -230,6 +286,11 @@
         }
         
         @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
             .projects-grid {
                 grid-template-columns: 1fr;
             }
@@ -240,197 +301,211 @@
         }
     </style>
 
+:::
+:::instruction_block[body]
 
-    <div class="header">
-        <h1>Private Practice Hub & CQC Campaign: Project Structure</h1>
-        <p class="subtitle">Two projects with phased enhancement strategy</p>
-    </div>
-
-    <h2>CORE PROJECTS</h2>
-    
-    <div class="projects-grid">
-        <div class="project-card">
-            <h3>📄 Project 1: Hub Creation</h3>
-            <div class="project-detail">
-                <div class="project-detail-label">Existing hub:</div>
-                <div class="project-detail-content">semble.io/launching-in-private-healthcare</div>
-            </div>
-            <div class="project-detail">
-                <div class="project-detail-label">Team:</div>
-                <div class="tags">
-                    <span class="tag">Customer Marketing</span>
-                    <span class="tag">Design</span>
-                </div>
-            </div>
-            <div class="project-detail">
-                <div class="project-detail-label">Deliverable:</div>
-                <div class="project-detail-content">Comprehensive content expansion, new hub layout/structure, UX and design refresh</div>
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-title">CQC Hub & Campaign</div>
+            <div class="nav-links">
+                <a href="index.html" class="active">Project Structure</a>
+                <a href="strategy.html">Strategy Overview</a>
             </div>
         </div>
+    </nav>
 
-        <div class="project-card campaign">
-            <h3>🚀 Project 2: CQC Campaign</h3>
-            <div class="project-detail">
-                <div class="project-detail-label">Asset:</div>
-                <div class="project-detail-content">CQC Course/Interactive Checklist</div>
-            </div>
-            <div class="project-detail">
-                <div class="project-detail-label">Team:</div>
-                <div class="tags">
-                    <span class="tag campaign">Demand Gen</span>
-                    <span class="tag campaign">Customer Marketing</span>
-                    <span class="tag campaign">Design</span>
-                    <span class="tag campaign">Product Marketing</span>
-                </div>
-            </div>
-            <div class="project-detail">
-                <div class="project-detail-label">Deliverable:</div>
-                <div class="project-detail-content">Course/interactive checklist + launch campaign</div>
-            </div>
+    <div class="content">
+        <div class="header">
+            <h1>Private Practice Hub & CQC Campaign: Project Structure</h1>
+            <p class="subtitle">Two projects with phased enhancement strategy</p>
         </div>
-    </div>
 
-    <div class="section-card phases">
-        <h2 style="margin-top: 0;">📈 PHASED APPROACH</h2>
+        <h2>CORE PROJECTS</h2>
         
-        <div class="phase-item">
-            <div class="phase-title">Pre-Phase 1: Content seeding & partner identification</div>
-            <ul class="phase-details">
-                <li>Blog content creation and publishing</li>
-                <li>Social content distribution</li>
-                <li>Identify and secure partners for launch distribution (leverage their audiences at launch)</li>
-                <li>Secure commitments for campaign sharing</li>
-            </ul>
-        </div>
-
-        <div class="phase-item">
-            <div class="phase-title">Phase 1: Hub Launch</div>
-            <ul class="phase-details">
-                <li>Publish refreshed hub with comprehensive content</li>
-                <li>Continue seeding blogs and socials</li>
-            </ul>
-        </div>
-
-        <div class="phase-item">
-            <div class="phase-title">Phase 2: Campaign Launch</div>
-            <ul class="phase-details">
-                <li>Publish campaign (course/interactive checklist)</li>
-                <li>Launch distribution (including partner amplification)</li>
-                <li>Full campaign promotion</li>
-            </ul>
-        </div>
-
-        <div class="phase-item">
-            <div class="phase-title">Phase 3: Enhancement</div>
-            <ul class="phase-details">
-                <li>Enhance campaign assets</li>
-                <li>Enhance distribution efforts</li>
-                <li>Add more expert perspectives</li>
-                <li>Additional partner videos and contributions</li>
-            </ul>
-        </div>
-
-        <div class="phase-item">
-            <div class="phase-title">Phase 4: Add video to hub and course</div>
-        </div>
-
-        <div class="phase-item">
-            <div class="phase-title">Phase 5: Repurpose videos in outreach</div>
-            <ul class="phase-details">
-                <li>Leverage expanded expert/partner/customer networks</li>
-                <li>Partners and contributors share assets</li>
-            </ul>
-        </div>
-
-        <div class="phase-item">
-            <div class="phase-title">Phase 6: Enhance hub with additional materials</div>
-            <ul class="phase-details">
-                <li>Case studies, buyers guide</li>
-            </ul>
-        </div>
-
-        <div class="phase-item">
-            <div class="phase-title">Phase 7: Evolve other hub sections into courses + other useful assets</div>
-        </div>
-    </div>
-
-    <div class="section-card distribution">
-        <h2 style="margin-top: 0;">📢 DISTRIBUTION</h2>
-        
-        <div class="distribution-grid">
-            <div class="distribution-item">
-                <h4>Video Ads</h4>
-                <p>Video as key piece of paid advertising</p>
-            </div>
-            
-            <div class="distribution-item">
-                <h4>Webinar</h4>
-                <p>With same expert (Jonathan)</p>
-            </div>
-            
-            <div class="distribution-item">
-                <h4>Partner/Expert/Customer Amplification</h4>
-                <p>Launch partners share campaign at launch (critical for initial reach). Additional partners added over time. Co-promotion through partner networks.</p>
-            </div>
-        </div>
-    </div>
-
-    <div class="section-card engagement">
-        <h2 style="margin-top: 0;">🎯 FOLLOW-UP & ENGAGEMENT</h2>
-        
-        <div class="engagement-list">
-            <div class="engagement-item">
-                <div class="engagement-number">1</div>
-                <div class="engagement-content">
-                    <h4>Engagement during course</h4>
-                    <p>Email sequences, progress tracking, completion nudges</p>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>📄 Project 1: Hub Creation</h3>
+                <div class="project-detail">
+                    <div class="project-detail-label">Existing hub:</div>
+                    <div class="project-detail-content">semble.io/launching-in-private-healthcare</div>
+                </div>
+                <div class="project-detail">
+                    <div class="project-detail-label">Team:</div>
+                    <div class="tags">
+                        <span class="tag">Customer Marketing</span>
+                        <span class="tag">Design</span>
+                    </div>
+                </div>
+                <div class="project-detail">
+                    <div class="project-detail-label">Deliverable:</div>
+                    <div class="project-detail-content">Comprehensive content expansion, new hub layout/structure, UX and design refresh</div>
                 </div>
             </div>
-            
-            <div class="engagement-item">
-                <div class="engagement-number">2</div>
-                <div class="engagement-content">
-                    <h4>Webinar follow-up</h4>
-                    <p>Post-webinar nurture sequences, replay distribution</p>
+
+            <div class="project-card campaign">
+                <h3>🚀 Project 2: CQC Campaign</h3>
+                <div class="project-detail">
+                    <div class="project-detail-label">Asset:</div>
+                    <div class="project-detail-content">CQC Course/Interactive Checklist</div>
                 </div>
-            </div>
-            
-            <div class="engagement-item">
-                <div class="engagement-number">3</div>
-                <div class="engagement-content">
-                    <h4>Retargeting</h4>
-                    <p>Course attendees and CQC section hub visitors</p>
+                <div class="project-detail">
+                    <div class="project-detail-label">Team:</div>
+                    <div class="tags">
+                        <span class="tag campaign">Demand Gen</span>
+                        <span class="tag campaign">Customer Marketing</span>
+                        <span class="tag campaign">Design</span>
+                        <span class="tag campaign">Product Marketing</span>
+                    </div>
+                </div>
+                <div class="project-detail">
+                    <div class="project-detail-label">Deliverable:</div>
+                    <div class="project-detail-content">Course/interactive checklist + launch campaign</div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <div class="section-card questions">
-        <h2 style="margin-top: 0;">❓ KEY ALIGNMENT QUESTIONS</h2>
-        
-        <div class="questions-list">
-            <div class="question-item">
-                <span class="question-number">1.</span>
-                <span class="question-label">Launch Timing:</span>
-                Early launch with light assets or bigger launch in March with more comprehensive assets?
-            </div>
+        <div class="section-card phases">
+            <h2 style="margin-top: 0;">📈 PHASED APPROACH</h2>
             
-            <div class="question-item">
-                <span class="question-number">2.</span>
-                <span class="question-label">Hub Structure:</span>
-                Two separate hubs or CQC as a section within the "how to launch a private practice" hub?
+            <div class="phase-item">
+                <div class="phase-title">Pre-Phase 1: Content seeding & partner identification</div>
+                <ul class="phase-details">
+                    <li>Blog content creation and publishing</li>
+                    <li>Social content distribution</li>
+                    <li>Identify and secure partners for launch distribution (leverage their audiences at launch)</li>
+                    <li>Secure commitments for campaign sharing</li>
+                </ul>
             </div>
-            
-            <div class="question-item">
-                <span class="question-number">3.</span>
-                <span class="question-label">Course Platform:</span>
-                Where does the course/interactive checklist live and what are the technical requirements?
+
+            <div class="phase-item">
+                <div class="phase-title">Phase 1: Hub Launch</div>
+                <ul class="phase-details">
+                    <li>Publish refreshed hub with comprehensive content</li>
+                    <li>Continue seeding blogs and socials</li>
+                </ul>
             </div>
+
+            <div class="phase-item">
+                <div class="phase-title">Phase 2: Campaign Launch</div>
+                <ul class="phase-details">
+                    <li>Publish campaign (course/interactive checklist)</li>
+                    <li>Launch distribution (including partner amplification)</li>
+                    <li>Full campaign promotion</li>
+                </ul>
+            </div>
+
+            <div class="phase-item">
+                <div class="phase-title">Phase 3: Enhancement</div>
+                <ul class="phase-details">
+                    <li>Enhance campaign assets</li>
+                    <li>Enhance distribution efforts</li>
+                    <li>Add more expert perspectives</li>
+                    <li>Additional partner videos and contributions</li>
+                </ul>
+            </div>
+
+            <div class="phase-item">
+                <div class="phase-title">Phase 4: Add video to hub and course</div>
+            </div>
+
+            <div class="phase-item">
+                <div class="phase-title">Phase 5: Repurpose videos in outreach</div>
+                <ul class="phase-details">
+                    <li>Leverage expanded expert/partner/customer networks</li>
+                    <li>Partners and contributors share assets</li>
+                </ul>
+            </div>
+
+            <div class="phase-item">
+                <div class="phase-title">Phase 6: Enhance hub with additional materials</div>
+                <ul class="phase-details">
+                    <li>Case studies, buyers guide</li>
+                </ul>
+            </div>
+
+            <div class="phase-item">
+                <div class="phase-title">Phase 7: Evolve other hub sections into courses + other useful assets</div>
+            </div>
+        </div>
+
+        <div class="section-card distribution">
+            <h2 style="margin-top: 0;">📢 DISTRIBUTION</h2>
             
-            <div class="question-item">
-                <span class="question-number">4.</span>
-                <span class="question-label">Launch Partners:</span>
-                Which partners do we prioritize for launch distribution commitments?
+            <div class="distribution-grid">
+                <div class="distribution-item">
+                    <h4>Video Ads</h4>
+                    <p>Video as key piece of paid advertising</p>
+                </div>
+                
+                <div class="distribution-item">
+                    <h4>Webinar</h4>
+                    <p>With same expert (Jonathan)</p>
+                </div>
+                
+                <div class="distribution-item">
+                    <h4>Partner/Expert/Customer Amplification</h4>
+                    <p>Launch partners share campaign at launch (critical for initial reach). Additional partners added over time. Co-promotion through partner networks.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card engagement">
+            <h2 style="margin-top: 0;">🎯 FOLLOW-UP & ENGAGEMENT</h2>
+            
+            <div class="engagement-list">
+                <div class="engagement-item">
+                    <div class="engagement-number">1</div>
+                    <div class="engagement-content">
+                        <h4>Engagement during course</h4>
+                        <p>Email sequences, progress tracking, completion nudges</p>
+                    </div>
+                </div>
+                
+                <div class="engagement-item">
+                    <div class="engagement-number">2</div>
+                    <div class="engagement-content">
+                        <h4>Webinar follow-up</h4>
+                        <p>Post-webinar nurture sequences, replay distribution</p>
+                    </div>
+                </div>
+                
+                <div class="engagement-item">
+                    <div class="engagement-number">3</div>
+                    <div class="engagement-content">
+                        <h4>Retargeting</h4>
+                        <p>Course attendees and CQC section hub visitors</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-card questions">
+            <h2 style="margin-top: 0;">❓ KEY ALIGNMENT QUESTIONS</h2>
+            
+            <div class="questions-list">
+                <div class="question-item">
+                    <span class="question-number">1.</span>
+                    <span class="question-label">Launch Timing:</span>
+                    Early launch with light assets or bigger launch in March with more comprehensive assets?
+                </div>
+                
+                <div class="question-item">
+                    <span class="question-number">2.</span>
+                    <span class="question-label">Hub Structure:</span>
+                    Two separate hubs or CQC as a section within the "how to launch a private practice" hub?
+                </div>
+                
+                <div class="question-item">
+                    <span class="question-number">3.</span>
+                    <span class="question-label">Course Platform:</span>
+                    Where does the course/interactive checklist live and what are the technical requirements?
+                </div>
+                
+                <div class="question-item">
+                    <span class="question-number">4.</span>
+                    <span class="question-label">Launch Partners:</span>
+                    Which partners do we prioritize for launch distribution commitments?
+                </div>
             </div>
         </div>
     </div>
