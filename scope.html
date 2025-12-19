@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scope & Priorities</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .nav {
+            background: #1a1a1a;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .nav-links a.active {
+            background: #4A90E2;
+        }
+        
+        .content {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .scope-section {
+            background: white;
+            border-radius: 12px;
+            padding: 30px;
+            margin-bottom: 30px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .scope-section h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .in-scope {
+            border-left: 4px solid #68D391;
+        }
+        
+        .out-scope {
+            border-left: 4px solid #F6AD55;
+        }
+        
+        .principles {
+            border-left: 4px solid #4A90E2;
+        }
+        
+        .scope-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .scope-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+        }
+        
+        .scope-card h3 {
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+        
+        .scope-card ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .scope-card li {
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #666;
+        }
+        
+        .icon {
+            font-size: 28px;
+        }
+        
+        .callout {
+            background: #FFF9E6;
+            border: 2px solid #F6AD55;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .callout strong {
+            color: #C05621;
+            font-size: 16px;
+        }
+        
+        .callout p {
+            margin-top: 10px;
+            font-size: 14px;
+            color: #666;
+        }
+        
+        .principle-list {
+            background: #F0F7FF;
+            border-radius: 8px;
+            padding: 20px;
+            margin-top: 20px;
+        }
+        
+        .principle-list ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .principle-list li {
+            font-size: 15px;
+            margin-bottom: 12px;
+            color: #333;
+        }
+        
+        .principle-list li strong {
+            color: #4A90E2;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+            
+            .scope-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-title">CQC Hub & Campaign</div>
+            <div class="nav-links">
+                <a href="index.html">Project Structure</a>
+                <a href="scope.html" class="active">Scope & Priorities</a>
+                <a href="strategy.html">Strategy Overview</a>
+                <a href="assets.html">Assets Guide</a>
+                <a href="timeline.html">Timeline</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="header">
+            <h1>Scope & Priorities</h1>
+            <p class="subtitle">What's included in the initial campaign push vs. future enhancements</p>
+        </div>
+
+        <div class="scope-section principles">
+            <h2><span class="icon">🎯</span> Launch Principles</h2>
+            <div class="principle-list">
+                <ul>
+                    <li><strong>Ship to learn:</strong> Launch with core value, iterate based on real user feedback</li>
+                    <li><strong>Speed over perfection:</strong> Better to launch in March with 80% than June with 100%</li>
+                    <li><strong>Data-driven enhancement:</strong> Let performance guide what to build next, not assumptions</li>
+                    <li><strong>Reusable assets:</strong> Everything we create should be repurposable across channels</li>
+                    <li><strong>Partner-ready:</strong> Prioritize assets that enable partner amplification from day one</li>
+                </ul>
+            </div>
+            <div class="callout">
+                <strong>Core Mantra:</strong>
+                <p>Launch lean. Measure everything. Double down on what works. This campaign is Phase 1 of a multi-phase content hub strategy—not a one-and-done project.</p>
+            </div>
+        </div>
+
+        <div class="scope-section in-scope">
+            <h2><span class="icon">✅</span> In Scope: Initial Campaign Push</h2>
+            <p style="margin-bottom: 20px; color: #666;">These deliverables are part of the March campaign launch and required for success.</p>
+            
+            <div class="scope-grid">
+                <div class="scope-card">
+                    <h3>📄 Hub Project</h3>
+                    <ul>
+                        <li>Comprehensive content expansion</li>
+                        <li>New hub layout/structure</li>
+                        <li>UX and design refresh</li>
+                        <li>SEO optimization</li>
+                        <li>Internal linking structure</li>
+                        <li>Clear CTAs to course/checklist</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>🎓 Course/Checklist</h3>
+                    <ul>
+                        <li>5-7 module course OR interactive checklist</li>
+                        <li>Text-based content with actionable steps</li>
+                        <li>Downloadable templates/resources</li>
+                        <li>Progress tracking functionality</li>
+                        <li>Expert insights from Jonathan</li>
+                        <li>Email sequences for engagement</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>📝 Blog Content (Seeding)</h3>
+                    <ul>
+                        <li>4-6 SEO-optimized articles</li>
+                        <li>Published pre-launch for topic seeding</li>
+                        <li>All linking back to hub</li>
+                        <li>Targeting key pain points</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>📱 Organic Social</h3>
+                    <ul>
+                        <li>15-20 pre-written social posts</li>
+                        <li>Graphics and quote cards</li>
+                        <li>LinkedIn carousels (3-5)</li>
+                        <li>Post schedule/calendar</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>🎥 Video Content (Initial)</h3>
+                    <ul>
+                        <li>1-2 hero videos for hub/course intro</li>
+                        <li>3-5 short clips (30-60s) for social/ads</li>
+                        <li>Featuring Jonathan or expert</li>
+                        <li>Multiple format exports (square, vertical, horizontal)</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>💰 Paid Ads</h3>
+                    <ul>
+                        <li>3-5 video ad variations</li>
+                        <li>Performance Max campaign setup</li>
+                        <li>Multiple ad copy variations</li>
+                        <li>Landing page optimization</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>🤝 Partner Assets</h3>
+                    <ul>
+                        <li>Partner toolkit (social posts, graphics, email templates)</li>
+                        <li>Co-branded graphics</li>
+                        <li>UTM tracking links</li>
+                        <li>Partner commitments secured</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>📧 Email Sequences</h3>
+                    <ul>
+                        <li>Welcome series (3-5 emails)</li>
+                        <li>Progress nudges</li>
+                        <li>Re-engagement campaign</li>
+                        <li>Webinar follow-up (if webinar runs)</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>💻 Webinar (Optional)</h3>
+                    <ul>
+                        <li>30-45 min live or pre-recorded session</li>
+                        <li>With Jonathan or expert</li>
+                        <li>Timed with campaign launch</li>
+                        <li>Slide deck and recording</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="scope-section out-scope">
+            <h2><span class="icon">🔮</span> Out of Scope: Future Enhancements</h2>
+            <p style="margin-bottom: 20px; color: #666;">These are valuable additions but NOT required for initial launch. They will be prioritized based on campaign performance and learnings.</p>
+            
+            <div class="scope-grid">
+                <div class="scope-card">
+                    <h3>📊 Case Studies</h3>
+                    <ul>
+                        <li>Detailed customer success stories</li>
+                        <li>Video testimonials</li>
+                        <li>Problem-solution-result narratives</li>
+                        <li><strong>Why later:</strong> Can enhance hub credibility, but not critical for initial conversion</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>📘 Buyers Guide</h3>
+                    <ul>
+                        <li>Comprehensive "how to choose" resource</li>
+                        <li>Comparison frameworks</li>
+                        <li>Decision-making tools</li>
+                        <li><strong>Why later:</strong> Valuable for SEO but requires significant research/writing</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>🎥 Extensive Video Library</h3>
+                    <ul>
+                        <li>Video for every course module</li>
+                        <li>Multiple expert interviews</li>
+                        <li>Customer video testimonials</li>
+                        <li><strong>Why later:</strong> Nice-to-have but doubles production time and cost</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>📰 PR & Media Outreach</h3>
+                    <ul>
+                        <li>Press releases</li>
+                        <li>Industry publication pitches</li>
+                        <li>Deep research reports (e.g., "State of Private Practice 2025")</li>
+                        <li><strong>Why later:</strong> Better to do once we have performance data and strong customer stories</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>🌍 Additional Expert Contributions</h3>
+                    <ul>
+                        <li>Guest articles from multiple experts</li>
+                        <li>Expert roundtable discussions</li>
+                        <li>Industry leader interviews</li>
+                        <li><strong>Why later:</strong> Jonathan provides initial credibility; expand expert network based on engagement</li>
+                    </ul>
+                </div>
+
+                <div class="scope-card">
+                    <h3>📚 Supporting Resources Library</h3>
+                    <ul>
+                        <li>Template library (documents, policies, forms)</li>
+                        <li>Toolkit downloads</li>
+                        <li>Regulatory checklists beyond CQC</li>
+                        <li><strong>Why later:</strong> Valuable additions but can be added incrementally post-launch</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="callout">
+                <strong>Decision Framework:</strong>
+                <p>Post-launch, we'll prioritize enhancements based on: 1) What users request most, 2) What drives highest conversion, 3) What partners say they need, 4) What data shows is missing. We're not saying "no" to these—we're saying "not yet."</p>
+            </div>
+        </div>
+
+        <div class="scope-section principles">
+            <h2><span class="icon">📊</span> Success Criteria for Initial Launch</h2>
+            <p style="margin-bottom: 20px; color: #666;">These metrics will determine whether we've successfully launched and what to enhance next.</p>
+            
+            <div class="principle-list">
+                <ul>
+                    <li><strong>Hub traffic:</strong> 1,000+ unique visitors in first month post-launch</li>
+                    <li><strong>Course enrollments:</strong> 200+ sign-ups in first month</li>
+                    <li><strong>Course completion:</strong> 30%+ completion rate for enrolled users</li>
+                    <li><strong>SEO performance:</strong> Hub ranking on page 1 for 3+ target keywords within 3 months</li>
+                    <li><strong>Partner engagement:</strong> 5+ partners actively sharing campaign assets</li>
+                    <li><strong>Email engagement:</strong> 30%+ open rate, 5%+ click rate on email sequences</li>
+                    <li><strong>Ad performance:</strong> Sub-£20 cost per course enrollment on paid ads</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+:::
+</html>
