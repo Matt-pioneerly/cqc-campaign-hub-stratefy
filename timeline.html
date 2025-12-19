@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+:::instruction_block[head]
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Timeline</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .nav {
+            background: #1a1a1a;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-title {
+            color: white;
+            font-size: 18px;
+            font-weight: 700;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+            padding: 8px 16px;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+        
+        .nav-links a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .nav-links a.active {
+            background: #4A90E2;
+        }
+        
+        .content {
+            max-width: 1400px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 50px;
+            padding: 40px 20px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+            color: #1a1a1a;
+        }
+        
+        .subtitle {
+            color: #666;
+            font-size: 16px;
+        }
+        
+        .timeline-container {
+            background: white;
+            border-radius: 12px;
+            padding: 40px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+        
+        .gantt-chart {
+            min-width: 1200px;
+        }
+        
+        .gantt-header {
+            display: grid;
+            grid-template-columns: 200px repeat(16, 1fr);
+            gap: 2px;
+            margin-bottom: 10px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #e0e0e0;
+        }
+        
+        .gantt-header-cell {
+            font-size: 12px;
+            font-weight: 700;
+            text-align: center;
+            padding: 8px 4px;
+        }
+        
+        .gantt-header-cell.label {
+            text-align: left;
+        }
+        
+        .gantt-row {
+            display: grid;
+            grid-template-columns: 200px repeat(16, 1fr);
+            gap: 2px;
+            margin-bottom: 8px;
+            align-items: center;
+        }
+        
+        .gantt-label {
+            font-size: 13px;
+            font-weight: 600;
+            padding: 8px;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .gantt-cell {
+            height: 40px;
+            background: #f8f9fa;
+            border-radius: 2px;
+        }
+        
+        .gantt-bar {
+            height: 100%;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 11px;
+            font-weight: 600;
+            color: white;
+            padding: 0 8px;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+        
+        .gantt-bar.project1 {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+        
+        .gantt-bar.project2 {
+            background: linear-gradient(135deg, #4A90E2 0%, #357ABD 100%);
+        }
+        
+        .gantt-bar.both {
+            background: linear-gradient(135deg, #68D391 0%, #38A169 100%);
+        }
+        
+        .gantt-bar.milestone {
+            background: linear-gradient(135deg, #F6AD55 0%, #DD6B20 100%);
+        }
+        
+        .legend {
+            display: flex;
+            gap: 30px;
+            justify-content: center;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 2px solid #e0e0e0;
+            flex-wrap: wrap;
+        }
+        
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .legend-color {
+            width: 30px;
+            height: 20px;
+            border-radius: 4px;
+        }
+        
+        .legend-text {
+            font-size: 14px;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .nav-links {
+                justify-content: center;
+            }
+            
+            .timeline-container {
+                padding: 20px;
+            }
+        }
+    </style>
+
+:::
+:::instruction_block[body]
+
+    <nav class="nav">
+        <div class="nav-container">
+            <div class="nav-title">CQC Hub & Campaign</div>
+            <div class="nav-links">
+                <a href="index.html">Project Structure</a>
+                <a href="strategy.html">Strategy Overview</a>
+                <a href="assets.html">Assets Guide</a>
+                <a href="timeline.html" class="active">Timeline</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="content">
+        <div class="header">
+            <h1>Project Timeline</h1>
+            <p class="subtitle">Gantt chart showing key milestones and deliverables</p>
+        </div>
+
+        <div class="timeline-container">
+            <div class="gantt-chart">
+                <!-- Header -->
+                <div class="gantt-header">
+                    <div class="gantt-header-cell label">Activity</div>
+                    <div class="gantt-header-cell">Week 1<br>Dec 16</div>
+                    <div class="gantt-header-cell">Week 2<br>Dec 23</div>
+                    <div class="gantt-header-cell">Week 3<br>Dec 30</div>
+                    <div class="gantt-header-cell">Week 4<br>Jan 6</div>
+                    <div class="gantt-header-cell">Week 5<br>Jan 13</div>
+                    <div class="gantt-header-cell">Week 6<br>Jan 20</div>
+                    <div class="gantt-header-cell">Week 7<br>Jan 27</div>
+                    <div class="gantt-header-cell">Week 8<br>Feb 3</div>
+                    <div class="gantt-header-cell">Week 9<br>Feb 10</div>
+                    <div class="gantt-header-cell">Week 10<br>Feb 17</div>
+                    <div class="gantt-header-cell">Week 11<br>Feb 24</div>
+                    <div class="gantt-header-cell">Week 12<br>Mar 3</div>
+                    <div class="gantt-header-cell">Week 13<br>Mar 10</div>
+                    <div class="gantt-header-cell">Week 14<br>Mar 17</div>
+                    <div class="gantt-header-cell">Week 15<br>Mar 24</div>
+                    <div class="gantt-header-cell">Week 16<br>Mar 31</div>
+                </div>
+
+                <!-- Planning Phase -->
+                <div class="gantt-row">
+                    <div class="gantt-label">Planning & Strategy</div>
+                    <div class="gantt-cell" style="grid-column: span 2;">
+                        <div class="gantt-bar both">Planning</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 14;"></div>
+                </div>
+
+                <!-- Hub Project -->
+                <div class="gantt-row">
+                    <div class="gantt-label">Hub: Content Strategy</div>
+                    <div class="gantt-cell" style="grid-column: span 2;"></div>
+                    <div class="gantt-cell" style="grid-column: span 2;">
+                        <div class="gantt-bar project1">Strategy</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 12;"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="gantt-label">Hub: Content Creation</div>
+                    <div class="gantt-cell" style="grid-column: span 4;"></div>
+                    <div class="gantt-cell" style="grid-column: span 3;">
+                        <div class="gantt-bar project1">Writing</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 9;"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="gantt-label">Hub: Design & UX</div>
+                    <div class="gantt-cell" style="grid-column: span 4;"></div>
+                    <div class="gantt-cell" style="grid-column: span 4;">
+                        <div class="gantt-bar project1">Design</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 8;"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="gantt-label">Hub: Build & Test</div>
+                    <div class="gantt-cell" style="grid-column: span 7;"></div>
+                    <div class="gantt-cell" style="grid-column: span 2;">
+                        <div class="gantt-bar project1">Build</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 7;"></div>
+                </div>
+
+                <!-- Campaign Project -->
+                <div class="gantt-row">
+                    <div class="gantt-label">Course: Outline & Script</div>
+                    <div class="gantt-cell" style="grid-column: span 2;"></div>
+                    <div class="gantt-cell" style="grid-column: span 2;">
+                        <div class="gantt-bar project2">Outline</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 12;"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="gantt-label">Video Production</div>
+                    <div class="gantt-cell" style="grid-column: span 4;"></div>
+                    <div class="gantt-cell" style="grid-column: span 2;">
+                        <div class="gantt-bar project2">Filming</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 10;"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="gantt-label">Course: Content Build</div>
+                    <div class="gantt-cell" style="grid-column: span 4;"></div>
+                    <div class="gantt-cell" style="grid-column: span 4;">
+                        <div class="gantt-bar project2">Build Course</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 8;"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="gantt-label">Video Editing</div>
+                    <div class="gantt-cell" style="grid-column: span 6;"></div>
+                    <div class="gantt-cell" style="grid-column: span 3;">
+                        <div class="gantt-bar project2">Edit</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 7;"></div>
+                </div>
+
+                <!-- Content Seeding -->
+                <div class="gantt-row">
+                    <div class="gantt-label">Blog Content Creation</div>
+                    <div class="gantt-cell" style="grid-column: span 2;"></div>
+                    <div class="gantt-cell" style="grid-column: span 6;">
+                        <div class="gantt-bar both">Blog Writing</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 8;"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="gantt-label">Social Content Seeding</div>
+                    <div class="gantt-cell" style="grid-column: span 4;"></div>
+                    <div class="gantt-cell" style="grid-column: span 5;">
+                        <div class="gantt-bar both">Social Posts</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 7;"></div>
+                </div>
+
+                <!-- Partner Outreach -->
+                <div class="gantt-row">
+                    <div class="gantt-label">Partner Identification</div>
+                    <div class="gantt-cell" style="grid-column: span 2;"></div>
+                    <div class="gantt-cell" style="grid-column: span 3;">
+                        <div class="gantt-bar project2">Partners</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 11;"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="gantt-label">Partner Commitments</div>
+                    <div class="gantt-cell" style="grid-column: span 5;"></div>
+                    <div class="gantt-cell" style="grid-column: span 3;">
+                        <div class="gantt-bar project2">Secure</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 8;"></div>
+                </div>
+
+                <!-- Launch Prep -->
+                <div class="gantt-row">
+                    <div class="gantt-label">Email Sequences</div>
+                    <div class="gantt-cell" style="grid-column: span 7;"></div>
+                    <div class="gantt-cell" style="grid-column: span 2;">
+                        <div class="gantt-bar project2">Emails</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 7;"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="gantt-label">Ad Creative & Setup</div>
+                    <div class="gantt-cell" style="grid-column: span 7;"></div>
+                    <div class="gantt-cell" style="grid-column: span 2;">
+                        <div class="gantt-bar project2">Ads</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 7;"></div>
+                </div>
+
+                <!-- Milestones -->
+                <div class="gantt-row">
+                    <div class="gantt-label"><strong>🚀 Hub Launch</strong></div>
+                    <div class="gantt-cell" style="grid-column: span 9;"></div>
+                    <div class="gantt-cell">
+                        <div class="gantt-bar milestone">Launch</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 6;"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="gantt-label"><strong>🎓 Campaign Launch</strong></div>
+                    <div class="gantt-cell" style="grid-column: span 11;"></div>
+                    <div class="gantt-cell">
+                        <div class="gantt-bar milestone">Launch</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 4;"></div>
+                </div>
+
+                <div class="gantt-row">
+                    <div class="gantt-label"><strong>💻 Webinar (Optional)</strong></div>
+                    <div class="gantt-cell" style="grid-column: span 11;"></div>
+                    <div class="gantt-cell" style="grid-column: span 2;">
+                        <div class="gantt-bar milestone">Webinar</div>
+                    </div>
+                    <div class="gantt-cell" style="grid-column: span 3;"></div>
+                </div>
+
+                <!-- Post-Launch -->
+                <div class="gantt-row">
+                    <div class="gantt-label">Enhancement & Iteration</div>
+                    <div class="gantt-cell" style="grid-column: span 12;"></div>
+                    <div class="gantt-cell" style="grid-column: span 4;">
+                        <div class="gantt-bar both">Optimize</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Legend -->
+            <div class="legend">
+                <div class="legend-item">
+                    <div class="legend-color project1"></div>
+                    <div class="legend-text">Hub Project</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color project2"></div>
+                    <div class="legend-text">Campaign Project</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color both"></div>
+                    <div class="legend-text">Both Projects</div>
+                </div>
+                <div class="legend-item">
+                    <div class="legend-color milestone"></div>
+                    <div class="legend-text">Key Milestone</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+:::
+</html>
